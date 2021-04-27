@@ -4,10 +4,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,8 +32,10 @@ public class LoginStageController {
     }
 
     public void tryLogin(){
+        //HandleJSON.checkIfUserExists(name_field.getText());
+        error_field.setText(HandleJSON.addUser(name_field.getText(),PasswordHandler.getHashedPassword(password_field.getText(),name_field.getText()))+"");
         //JSON parser object to parse read file
-        JSONParser jsonParser = new JSONParser();
+        /*JSONParser jsonParser = new JSONParser();
         URL file = this.getClass().getResource("login.json");
 
         try (FileReader reader = new FileReader( new File(file.getFile())))
@@ -72,7 +71,7 @@ public class LoginStageController {
 
 
         PasswordHandler ps=new PasswordHandler();
-        error_field.setText(ps.getHashedPassword(password_field.getText(),name_field.getText()));
+        error_field.setText(ps.getHashedPassword(password_field.getText(),name_field.getText()));*/
        /* if(firstName.equals(name_field.getText())){
             error_field.setText("user found");
         }*/
