@@ -9,7 +9,7 @@ import java.io.*;
 
 public class HandleJSON {
 
-    public static boolean addUser(String name, String hashedPassword ){ //the function returns true if it added a new user with success else false
+    public static boolean addUser(String name, String hashedPassword, String role){ //the function returns true if it added a new user with success else false
 
 
         if(checkIfUserExists(name)){ //if user exists it will not be added
@@ -23,6 +23,7 @@ public class HandleJSON {
         obj.put("name", name);
         obj.put("password", hashedPassword);
         obj.put("tests","");
+        obj.put("role",role);
 
         JSONArray a= new JSONArray();
 
@@ -148,4 +149,54 @@ public class HandleJSON {
         return false;
     }
 
+    public static boolean checkUserAndPass(String name,String HashedPass)  {
+        FileReader r= null;
+        try {
+            r = new FileReader("login.json");
+        } catch (FileNotFoundException e) {
+            return false;
+        }
+        JSONParser parser=new JSONParser();
+
+        try {
+            Object allObjects=parser.parse(r);
+
+            JSONArray arr=(JSONArray)allObjects;
+            int i;
+            for(i=0;i<arr.size();i++){
+                JSONObject tmp=(JSONObject) arr.get(i);
+                //System.out.println(tmp.get("name"));
+                if(name.equals(tmp.get("name").toString())&&HashedPass.equals(tmp.get("password").toString())){
+                    // System.out.println(true+"1");
+                    return true;
+                }
+            }
+            // System.out.println(false+"2");
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }catch (ClassCastException e){
+            try {
+                Object allObjects=parser.parse(r);
+                JSONObject tmp=(JSONObject) allObjects;
+
+                if(name.equals(tmp.get("name").toString())&&HashedPass.equals(tmp.get("password").toString())){
+                    //  System.out.println(true+"3");
+                    return true;
+                }
+                //System.out.println(false+"4");
+                return false;
+
+
+
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            } catch (ParseException parseException) {
+                parseException.printStackTrace();
+            }
+        }
+        return false;
+    }
 }
