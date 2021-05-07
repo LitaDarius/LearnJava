@@ -42,11 +42,13 @@ public class HandleJSON {
             System.out.println(a.get(a.size()-1));
 
 
-            FileWriter file = new FileWriter(new File("login.json"));
+            FileWriter file = new FileWriter("login.json");
 
 
             file.write(a.toJSONString());
             file.flush();
+            file.close();
+            r.close();
             return true;
         }catch (NullPointerException | IOException | ParseException e ){
 
@@ -59,6 +61,7 @@ public class HandleJSON {
 
                 file.write(a.toJSONString());
                 file.flush();
+                file.close();
                 return true;
             } catch (IOException ee) {
 
@@ -71,7 +74,7 @@ public class HandleJSON {
 
 
             Object o= parser.parse(r);
-            JSONObject Jobj=(JSONObject) o;
+            JSONObject Jobj;
             Jobj=(JSONObject) o;
 
 
@@ -81,11 +84,13 @@ public class HandleJSON {
 
 
 //comment
-            FileWriter file = new FileWriter(new File("login.json"));
+            FileWriter file = new FileWriter("login.json");
 
 
             file.write(a.toJSONString());
             file.flush();
+            file.close();
+            r.close();
             return true;
         }catch (Exception d){
                 System.out.println("strange Scenario "+d);
@@ -99,7 +104,7 @@ public class HandleJSON {
 
 
     public static boolean checkIfUserExists(String name)  {
-        FileReader r= null;
+        FileReader r;
         try {
             r = new FileReader("login.json");
         } catch (FileNotFoundException e) {
@@ -117,6 +122,7 @@ public class HandleJSON {
                 //System.out.println(tmp.get("name"));
                 if(name.equals(tmp.get("name").toString())){
                    // System.out.println(true+"1");
+
                     return true;
                 }
             }
@@ -131,13 +137,9 @@ public class HandleJSON {
                 Object allObjects=parser.parse(r);
                 JSONObject tmp=(JSONObject) allObjects;
 
-                if(name.equals(tmp.get("name").toString())){
-                  //  System.out.println(true+"3");
-                    return true;
-                }
+                //  System.out.println(true+"3");
+                return name.equals(tmp.get("name").toString());
                 //System.out.println(false+"4");
-                return false;
-
 
 
             } catch (IOException ioException) {
@@ -182,13 +184,60 @@ public class HandleJSON {
                 Object allObjects=parser.parse(r);
                 JSONObject tmp=(JSONObject) allObjects;
 
-                if(name.equals(tmp.get("name").toString())&&HashedPass.equals(tmp.get("password").toString())){
-                    //  System.out.println(true+"3");
+                //  System.out.println(true+"3");
+                return name.equals(tmp.get("name").toString()) && HashedPass.equals(tmp.get("password").toString());
+                //System.out.println(false+"4");
+
+
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            } catch (ParseException parseException) {
+                parseException.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    public static boolean addTestToUser(String name,String test){
+        FileReader r;
+        try {
+            r = new FileReader("login.json");
+        } catch (FileNotFoundException e) {
+            return false;
+        }
+        JSONParser parser=new JSONParser();
+
+        try {
+            Object allObjects=parser.parse(r);
+
+            JSONArray arr=(JSONArray)allObjects;
+            int i;
+            for(i=0;i<arr.size();i++){
+                JSONObject tmp=(JSONObject) arr.get(i);
+
+                if(name.equals(tmp.get("name").toString())){
+                    FileWriter file = new FileWriter("login.json");
+                    ((JSONObject) arr.get(i)).put("tests",tmp.get("tests")+" "+test);
+
+
+                    file.write(arr.toString());
+
+                    file.close();
                     return true;
                 }
-                //System.out.println(false+"4");
-                return false;
+            }
 
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }catch (ClassCastException e){
+            try {
+                Object allObjects=parser.parse(r);
+                JSONObject tmp=(JSONObject) allObjects;
+
+                return name.equals(tmp.get("name").toString());
 
 
             } catch (IOException ioException) {

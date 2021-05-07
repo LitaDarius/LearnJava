@@ -60,6 +60,7 @@ public class LoginStageController {
 
         }
         else error_field.setText("failed to login");
+
     }
     public void register(ActionEvent actionEvent){
         Parent root = null;
@@ -68,6 +69,7 @@ public class LoginStageController {
             root=l.load();
             RegisterController reg=l.getController();
             reg.getScene(error_field.getScene());
+
         } catch (IOException e) {
             System.out.println("missing files");
             e.printStackTrace();

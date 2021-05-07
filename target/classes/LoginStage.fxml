@@ -27,5 +27,5 @@
    <Button fx:id="login_button" layoutX="398.0" layoutY="337.0" mnemonicParsing="false" onAction="#tryLogin" text="login" />
    <PasswordField fx:id="password_field" layoutX="350.0" layoutY="243.0" />
    <Text fx:id="error_field" layoutX="332.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="177.0" />
-   <Button fx:id="register_button" layoutX="391.0" layoutY="383.0" mnemonicParsing="false" text="register" />
+   <Button fx:id="register_button" layoutX="391.0" layoutY="383.0" mnemonicParsing="false" onAction="#register" text="register" />
 </AnchorPane>
