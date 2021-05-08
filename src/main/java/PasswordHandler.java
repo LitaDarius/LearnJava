@@ -3,7 +3,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class PasswordHandler {
-    public String getHashedPassword(String passwordToHash, String salt)
+    public static String getHashedPassword(String passwordToHash, String salt)
     {
         String generatedPassword = null;
         try {

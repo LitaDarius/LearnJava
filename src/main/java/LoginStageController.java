@@ -1,13 +1,15 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,47 +36,49 @@ public class LoginStageController {
 
     }
 
-    public void tryLogin(){
-        //JSON parser object to parse read file
-        JSONParser jsonParser = new JSONParser();
-        URL file = this.getClass().getResource("login.json");
+    public void tryLogin(ActionEvent actionEvent){
+        //HandleJSON.checkIfUserExists(name_field.getText());
+        //error_field.setText(HandleJSON.addUser(name_field.getText(),PasswordHandler.getHashedPassword(password_field.getText(),name_field.getText()))+"");
+        if(HandleJSON.checkUserAndPass(name_field.getText(),PasswordHandler.getHashedPassword(password_field.getText(),name_field.getText()))){
+            //error_field.setText("true");
 
-        try (FileReader reader = new FileReader( new File(file.getFile())))
-        {
-            //Read JSON file
-            Object obj = jsonParser.parse(reader);
+            Parent root = null;
+            try {
+                FXMLLoader l = new FXMLLoader(getClass().getResource("home.fxml"));
+                root=l.load();
+                HomeController h=l.getController();
+                System.out.println(name_field.getText());
+                h.getName(name_field.getText());
+            } catch (IOException e) {
+                System.out.println("missing files");
+                e.printStackTrace();
+                System.exit(0);
+            }
+            Stage thisStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            Scene nextStage=new Scene(root);
+            thisStage.setScene(nextStage);
 
-            JSONArray employeeList = (JSONArray) obj;
-            System.out.println(employeeList);
-            employeeList.forEach( emp -> parseEmployeeObject( (JSONObject) emp ) );
-
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
-      //error_field.setText("failed to login");
+        else error_field.setText("failed to login");
+
     }
+    public void register(ActionEvent actionEvent){
+        Parent root = null;
+        try {
+            FXMLLoader l = new FXMLLoader(getClass().getResource("register.fxml"));
+            root=l.load();
+            RegisterController reg=l.getController();
+            reg.getScene(error_field.getScene());
 
-    private void parseEmployeeObject(JSONObject employee)
-    {
-        //Get employee object within list
-        JSONObject employeeObject = (JSONObject) employee.get("employee");
+        } catch (IOException e) {
+            System.out.println("missing files");
+            e.printStackTrace();
+            System.exit(0);
+        }
+        Stage thisStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        Scene nextStage=new Scene(root);
 
-        //Get employee first name
-        String firstName = (String) employeeObject.get("name");
-        System.out.println(firstName);
+        thisStage.setScene(nextStage);
 
-
-
-        PasswordHandler ps=new PasswordHandler();
-        error_field.setText(ps.getHashedPassword(password_field.getText(),name_field.getText()));
-       /* if(firstName.equals(name_field.getText())){
-            error_field.setText("user found");
-        }*/
     }
 }
