@@ -1,3 +1,5 @@
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +16,8 @@ import javafx.scene.control.Button;
 
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,16 +29,47 @@ public class TestsController implements Initializable {
     @FXML
     private ScrollPane scroll_pane;
 
+    private VBox v;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        VBox v=new VBox();
+         v=new VBox();
+         File f=new File("categories");
+         String s="";
+
+
+         if(!f.exists()){
+             System.out.println("file not found");
+         }
+         listFilesForFolder(f,s,v);
 
         int i;
-        for(i=0;i<100;i++){
+       /* for(i=0;i<100;i++){
             v.getChildren().add(new Button(i+""));
-        }
+        }*/
 
         scroll_pane.setContent(v);
+    }
+
+    public void listFilesForFolder(final File folder,String path,VBox v) {
+       // System.out.println(folder.getName()+" "+folder);
+        path=path+"/";
+        path=path+folder.getName();
+        for ( File fileEntry : folder.listFiles()) {
+            if (fileEntry.isDirectory()) {
+                listFilesForFolder(fileEntry,path,v);
+            } else {
+                Button b=new Button(path+"/"+fileEntry.getName());
+                b.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override public void handle(ActionEvent e) {
+                        TestFrame.start(fileEntry);
+                        //label.setText("Accepted");
+                    }
+                });
+                v.getChildren().add(b);
+                //System.out.println(path+"/"+fileEntry.getName());
+            }
+        }
     }
 
 

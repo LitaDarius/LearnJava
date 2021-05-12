@@ -39,7 +39,8 @@ public class LoginStageController {
     public void tryLogin(ActionEvent actionEvent){
         //HandleJSON.checkIfUserExists(name_field.getText());
         //error_field.setText(HandleJSON.addUser(name_field.getText(),PasswordHandler.getHashedPassword(password_field.getText(),name_field.getText()))+"");
-        if(HandleJSON.checkUserAndPass(name_field.getText(),PasswordHandler.getHashedPassword(password_field.getText(),name_field.getText()))){
+       // System.out.println(name_field.getText()+" "+password_field.getText()+" "+PasswordHandler.getHashedPassword(name_field.getText(),password_field.getText()));
+        if(HandleJSON.checkUserAndPass(name_field.getText(),PasswordHandler.getHashedPassword(name_field.getText(),password_field.getText()))){
             //error_field.setText("true");
 
             Parent root = null;
@@ -62,6 +63,8 @@ public class LoginStageController {
         else error_field.setText("failed to login");
 
     }
+
+
     public void register(ActionEvent actionEvent){
         Parent root = null;
         try {
