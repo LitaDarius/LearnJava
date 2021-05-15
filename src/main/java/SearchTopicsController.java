@@ -7,21 +7,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-public class SearchTopicsController implements Initializable{
+public class SearchTopicsController {
 
         @FXML
-        public TextField searchtop;
+        TextField searchtop;
         @FXML
-       public TextField result;
-        @FXML
-        ComboBox hello;
+        TextField result;
 
 
         public void searchtopic(){
             SearchTopics object = new SearchTopics();
+            //object.getFileList("C:\\Users\\Alexandra\\Desktop\\TOPICS",searchtop.getText());
             object.search(searchtop.getText());
             if(searchtop.getText().isEmpty()){
                 result.setText("No topic found!");
@@ -33,15 +29,6 @@ public class SearchTopicsController implements Initializable{
             }
 
 
-        }
-        @Override
-        public void initialize(URL location,ResourceBundle resources){
-            File folder = new File("topics");
-            for(File fileEntry:folder.listFiles()){
-                if(fileEntry.isDirectory()){
-                    hello.getItems().add(fileEntry.getName());//add to combobox
-                }
-            }
         }
 
 

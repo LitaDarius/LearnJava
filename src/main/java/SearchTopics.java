@@ -4,7 +4,7 @@ import java.io.FilenameFilter;
 public class SearchTopics {
     public void search(String SearchT) {
 
-        File[] fileList = getFileList("topics",SearchT);
+        File[] fileList = getFileList("C:\\Users\\Alexandra\\Desktop\\TOPICS",SearchT);
         int i=0;
         for(File file : fileList) {
             if(file.getName()!=null){
@@ -24,7 +24,7 @@ public class SearchTopics {
 
         File[] fileList = dir.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                return name.contains(SearchT);
+                return name.startsWith(SearchT);
             }
         });
         return fileList;
