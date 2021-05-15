@@ -1,5 +1,5 @@
 import java.io.*;
-//commmmmmmmmmmmm
+
 
 public class FeedbackMethod {
     public void write(String Name,String message) {
