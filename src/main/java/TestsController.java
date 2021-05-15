@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -28,6 +29,8 @@ public class TestsController implements Initializable {
     private Text name;
     @FXML
     private ScrollPane scroll_pane;
+    @FXML
+    private Label result_label;
 
     private VBox v;
 
@@ -36,6 +39,8 @@ public class TestsController implements Initializable {
          v=new VBox();
          File f=new File("categories");
          String s="";
+
+
 
 
          if(!f.exists()){
@@ -52,7 +57,7 @@ public class TestsController implements Initializable {
     }
 
     public void listFilesForFolder(final File folder,String path,VBox v) {
-       // System.out.println(folder.getName()+" "+folder);
+
         path=path+"/";
         path=path+folder.getName();
         for ( File fileEntry : folder.listFiles()) {
@@ -62,7 +67,8 @@ public class TestsController implements Initializable {
                 Button b=new Button(path+"/"+fileEntry.getName());
                 b.setOnAction(new EventHandler<ActionEvent>() {
                     @Override public void handle(ActionEvent e) {
-                        TestFrame.start(fileEntry);
+                        int res=TestFrame.start(fileEntry,name.getText());
+                        result_label.setText("correct answers: "+res);
                         //label.setText("Accepted");
                     }
                 });
@@ -80,7 +86,7 @@ public class TestsController implements Initializable {
             FXMLLoader l = new FXMLLoader(getClass().getResource("home.fxml"));
             root=l.load();
             HomeController h=l.getController();
-            System.out.println(name.getText());
+          //  System.out.println(name.getText());
             h.getName(name.getText());
         } catch (IOException e) {
             System.out.println("missing files");
@@ -90,6 +96,25 @@ public class TestsController implements Initializable {
         Stage thisStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         Scene nextStage=new Scene(root);
         thisStage.setScene(nextStage);
+    }
+
+    public void getToStats(ActionEvent actionEvent){
+        Parent root = null;
+        try {
+            FXMLLoader l = new FXMLLoader(getClass().getResource("Stats.fxml"));
+            root=l.load();
+            StatsController t=l.getController();
+            t.getName(name.getText());
+        } catch (IOException e) {
+            System.out.println("missing files");
+            e.printStackTrace();
+            System.exit(0);
+        }
+        Stage thisStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        Scene nextStage=new Scene(root);
+
+        thisStage.setScene(nextStage);
+
     }
 
     public void getName(String n){

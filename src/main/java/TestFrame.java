@@ -16,11 +16,12 @@ import java.util.Scanner;
 public class TestFrame {
 
 
-    public static void start(File f) {
+    public static int start(File f,String name) {
 
         Stage primaryStage=new Stage();
         int[] k=new int[1];
         k[0]=0;
+        int total=0;
         Scanner s=null;
 
         primaryStage.setTitle("Test ");
@@ -31,10 +32,15 @@ public class TestFrame {
             e.printStackTrace();
             System.exit(1);
         }
-        while(s.hasNext())
-    new TestFrame().test(s,k);
+        while(s.hasNext()){
+            total++;
+    new TestFrame().test(s,k);}
 
-        System.out.println(k[0]);
+        if(total==k[0]&&!HandleJSON.checkIfUserHasTest(name,f.getName())){
+            HandleJSON.addTestToUser(name,f.getName());
+        }
+
+        return k[0];
 
     }
 
