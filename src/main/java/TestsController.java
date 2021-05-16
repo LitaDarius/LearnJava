@@ -37,7 +37,7 @@ public class TestsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
          v=new VBox();
-         File f=new File("categories");
+         File f=new File("topics");
          String s="";
 
 

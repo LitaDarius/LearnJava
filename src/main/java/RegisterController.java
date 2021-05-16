@@ -50,6 +50,12 @@ public class RegisterController {
             }
             else
                 error_field.setText("an error occurred");
+        }else if(admin_field.getText().equals("admin")){
+            if(HandleJSON.addUser(name_field.getText(),PasswordHandler.getHashedPassword(name_field.getText(),password_field1.getText()),"admin")){
+                error_field.setText("user added successfully");
+            }
+            else
+                error_field.setText("an error occurred");
         }
 
 

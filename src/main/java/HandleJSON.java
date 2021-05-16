@@ -411,4 +411,52 @@ public class HandleJSON {
         }
         return null;
     }
+
+    public static boolean checkIfUserAdmin(String name)  {
+        FileReader r;
+        try {
+            r = new FileReader("login.json");
+        } catch (FileNotFoundException e) {
+            return false;
+        }
+        JSONParser parser=new JSONParser();
+
+        try {
+            Object allObjects=parser.parse(r);
+
+            JSONArray arr=(JSONArray)allObjects;
+            int i;
+            for(i=0;i<arr.size();i++){
+                JSONObject tmp=(JSONObject) arr.get(i);
+                //System.out.println(tmp.get("name"));
+                if(name.equals(tmp.get("name").toString())&&"admin".equals(tmp.get("role"))){
+                    // System.out.println(true+"1");
+
+                    return true;
+                }
+            }
+            // System.out.println(false+"2");
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }catch (ClassCastException e){
+            try {
+                Object allObjects=parser.parse(r);
+                JSONObject tmp=(JSONObject) allObjects;
+
+                //  System.out.println(true+"3");
+                return name.equals(tmp.get("name").toString())&&"admin".equals(tmp.get("role"));
+                //System.out.println(false+"4");
+
+
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            } catch (ParseException parseException) {
+                parseException.printStackTrace();
+            }
+        }
+        return false;
+    }
 }
