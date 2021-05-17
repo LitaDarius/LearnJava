@@ -61,7 +61,9 @@ public class LoginStageController {
         }else{
                 Parent root = null;
                 try {
-                    FXMLLoader l = new FXMLLoader(getClass().getResource("admin_panel.fxml"));
+                    URL temp=this.getClass().getResource("admin_panel.fxml");
+                    System.out.println(temp);
+                    FXMLLoader l = new FXMLLoader(temp);
                     root=l.load();
 
                 } catch (IOException e) {

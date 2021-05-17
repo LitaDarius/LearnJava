@@ -19,7 +19,7 @@
       <ComboBox fx:id="existent_topics" layoutX="372.0" layoutY="142.0" prefWidth="150.0" promptText=" select topic " />
       <Button layoutX="408.0" layoutY="175.0" mnemonicParsing="false" onAction="#delTopic" text="delete topic" />
       <Button layoutX="250.0" layoutY="320.0" mnemonicParsing="false" text="serach for client" />
-      <Button layoutX="274.0" layoutY="473.0" mnemonicParsing="false" text="logout" />
+      <Button layoutX="274.0" layoutY="473.0" mnemonicParsing="false" onAction="#logout" text="logout" />
       <TextField layoutX="225.0" layoutY="266.0" />
       <Text layoutX="227.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="logins today:" textAlignment="CENTER" wrappingWidth="145.00586092472076" />
    </children>

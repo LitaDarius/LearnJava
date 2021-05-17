@@ -80,5 +80,23 @@ public class StatsController  {
         scroll_pane.setContent(v);
     }
 
+    public void logout(ActionEvent actionEvent){
+        Parent root = null;
+        try {
+            FXMLLoader l = new FXMLLoader(getClass().getResource("LoginStage.fxml"));
+            root=l.load();
+
+        } catch (IOException e) {
+            System.out.println("missing files");
+            e.printStackTrace();
+            System.exit(0);
+        }
+        Stage thisStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        Scene nextStage=new Scene(root);
+
+        thisStage.setScene(nextStage);
+
+    }
+
 
 }
