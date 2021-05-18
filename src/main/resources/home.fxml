@@ -9,28 +9,29 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomeController">
    <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B1D37A;" BorderPane.alignment="CENTER">
          <children>
             <Text fx:id="name" layoutX="2.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="198.89453125">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button layoutY="120.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="202.0" text="home" />
-            <Button layoutY="157.0" mnemonicParsing="false" onAction="#getToTests" prefHeight="37.0" prefWidth="202.0" text="tests" />
-            <Button layoutY="194.0" mnemonicParsing="false" onAction="#getToStats" prefHeight="37.0" prefWidth="202.0" text="stats" />
+            <Button layoutY="120.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: #DBEBC0;" text="home" />
+            <Button layoutY="157.0" mnemonicParsing="false" onAction="#getToTests" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: #C5DE9B;" text="tests" />
+            <Button layoutY="194.0" mnemonicParsing="false" onAction="#getToStats" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: #DBEBC0;" text="stats" />
+            <Button layoutX="54.0" layoutY="261.0" mnemonicParsing="false" style="-fx-background-color: #DCF39C;" text="Give feedback!" />
          </children>
       </AnchorPane>
    </left>
    <bottom>
-      <AnchorPane prefHeight="62.0" prefWidth="956.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="62.0" prefWidth="956.0" style="-fx-background-color: #658E20;" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="64.0" layoutY="19.0" mnemonicParsing="false" onAction="#logout" text="logout" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="19.0" />
          </children>
       </AnchorPane>
    </bottom>
    <top>
-      <AnchorPane prefHeight="25.0" prefWidth="956.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="25.0" prefWidth="956.0" style="-fx-background-color: #658E20;" BorderPane.alignment="CENTER">
          <children>
             <Text boundsType="VISUAL" layoutX="30.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LearnJava" AnchorPane.leftAnchor="33.212890625" AnchorPane.rightAnchor="779.01025390625">
                <font>
@@ -41,7 +42,7 @@
       </AnchorPane>
    </top>
    <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C5DE9B;" BorderPane.alignment="CENTER">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
         </content>
