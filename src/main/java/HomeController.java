@@ -69,6 +69,25 @@ public class HomeController {
 
     }
 
+
+    public void feedback(){
+        Parent root = null;
+        try {
+            FXMLLoader l = new FXMLLoader(getClass().getResource("feed.fxml"));
+            root=l.load();
+
+        } catch (IOException e) {
+            System.out.println("missing files");
+            e.printStackTrace();
+            System.exit(0);
+        }
+
+        Scene scene=new Scene(root);
+        Stage t=new Stage();
+        t.setScene(scene);
+        t.show();
+    }
+
     public void getName(String n){
         name.setText(n);
     }
