@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="600.0" style="-fx-background-color: #6ED3B4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminController">
+   <children>
+      <Text fill="#0b530e" fontSmoothingType="LCD" layoutX="227.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Panel">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Button layoutX="119.0" layoutY="175.0" mnemonicParsing="false" onAction="#addTopic" style="-fx-background-color: #D2D36E;" text="add topic" />
+      <TextField fx:id="topic_name" layoutX="78.0" layoutY="142.0" promptText="name of new topic" style="-fx-background-color: lightyellow;" />
+      <ComboBox fx:id="existent_topics" layoutX="372.0" layoutY="142.0" prefWidth="150.0" promptText=" select topic " style="-fx-background-color: lightyellow;" />
+      <Button layoutX="408.0" layoutY="175.0" mnemonicParsing="false" onAction="#delTopic" style="-fx-background-color: #D2D36E;" text="delete topic" />
+      <Button layoutX="250.0" layoutY="320.0" mnemonicParsing="false" onAction="#showUserInfo" style="-fx-background-color: #D2D36E;" text="serach for client" />
+      <Button layoutX="274.0" layoutY="473.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #D2D36E;" text="logout" />
+      <TextField fx:id="userf" layoutX="225.0" layoutY="266.0" style="-fx-background-color: lightyellow;" />
+      <Text fx:id="login_number" layoutX="227.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="logins today:" textAlignment="CENTER" wrappingWidth="145.00586092472076" />
+      <Text fx:id="user_info" layoutX="103.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="393.13671875" />
+   </children>
+</AnchorPane>

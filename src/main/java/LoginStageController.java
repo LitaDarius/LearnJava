@@ -37,17 +37,18 @@ public class LoginStageController {
     }
 
     public void tryLogin(ActionEvent actionEvent){
-        //HandleJSON.checkIfUserExists(name_field.getText());
-        //error_field.setText(HandleJSON.addUser(name_field.getText(),PasswordHandler.getHashedPassword(password_field.getText(),name_field.getText()))+"");
-        if(HandleJSON.checkUserAndPass(name_field.getText(),PasswordHandler.getHashedPassword(password_field.getText(),name_field.getText()))){
-            //error_field.setText("true");
+
+        if(HandleJSON.checkUserAndPass(name_field.getText(),PasswordHandler.getHashedPassword(name_field.getText(),password_field.getText()))){
+
+            DateHandle.addLogin();
+            if(!HandleJSON.checkIfUserAdmin(name_field.getText())){
 
             Parent root = null;
             try {
                 FXMLLoader l = new FXMLLoader(getClass().getResource("home.fxml"));
                 root=l.load();
                 HomeController h=l.getController();
-                System.out.println(name_field.getText());
+               // System.out.println(name_field.getText());
                 h.getName(name_field.getText());
             } catch (IOException e) {
                 System.out.println("missing files");
@@ -58,10 +59,31 @@ public class LoginStageController {
             Scene nextStage=new Scene(root);
             thisStage.setScene(nextStage);
 
+        }else{
+                Parent root = null;
+                try {
+                    URL temp=this.getClass().getResource("admin_panel.fxml");
+                    System.out.println(temp);
+                    FXMLLoader l = new FXMLLoader(temp);
+                    root=l.load();
+
+                } catch (IOException e) {
+                    System.out.println("missing files");
+                    e.printStackTrace();
+                    System.exit(0);
+                }
+                Stage thisStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+                Scene nextStage=new Scene(root);
+                thisStage.setScene(nextStage);
+
+            }
+
         }
         else error_field.setText("failed to login");
 
     }
+
+
     public void register(ActionEvent actionEvent){
         Parent root = null;
         try {
