@@ -19,7 +19,7 @@
             <Button layoutY="120.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: #DBEBC0;" text="home" />
             <Button layoutY="157.0" mnemonicParsing="false" onAction="#getToTests" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: #C5DE9B;" text="tests" />
             <Button layoutY="194.0" mnemonicParsing="false" onAction="#getToStats" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: #DBEBC0;" text="stats" />
-            <Button layoutX="54.0" layoutY="261.0" mnemonicParsing="false" style="-fx-background-color: #DCF39C;" text="Give feedback!" />
+            <Button layoutX="54.0" layoutY="261.0" mnemonicParsing="false" onAction="#feedback" style="-fx-background-color: #DCF39C;" text="Give feedback!" />
          </children>
       </AnchorPane>
    </left>
