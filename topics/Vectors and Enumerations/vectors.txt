@@ -1,0 +1,20 @@
+1. Declare and construct a Vector with 20 initial slots and an increment size of 5.
+a.    Vector v(20) = new Vector(5)
+b.    Vector v = new Vector(20)
+c.    Vector[] v = new Vector(20,5)
+d.    Vector v = new Vector(20, 5)
+4
+2. Examine the following code: Vector list = new Vector(10); list.addElement( new Point(5,12) ); list.addElement( new Point(15,23) ); list.addElement( new Point(62,72) ); After the code has exectued, what is the capactiy of the Vector? What is its size?
+a.    3, 3
+b.    3, 10
+  c.    10, 3
+d.    10, 10
+3
+3. Examine the following code: Vector list = new Vector(5, 5); list.addElement( new Point(5,12) ); list.addElement( new Point(15,23) ); list.addElement( new Point(62,72) ); list.addElement( new Point(7,8) ); list.addElement( new Point(25,43) ); list.addElement( new Point(12,76) ); After the code has exectued, what is the capactiy of the Vector? What is its size?
+a.    5, 6
+b.    6, 6
+c.    10, 6
+d.    6, 10
+3
+
+

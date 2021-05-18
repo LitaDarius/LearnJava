@@ -1,0 +1,25 @@
+1. What is a data type? 
+a. The part of the CPU that does arithmetic.
+b. A part of main memory used to store data.
+c. A particular scheme for represending values with bit patterns.
+d. The collection of variables that a program uses.
+3
+2. How many patterns can be created using a single bit? 
+a. 1
+b. 2
+c. 4
+d. 8
+2
+3. What is a Java primitive data type? 
+a. A method for representing values that is so useful that it is a fundamental part of the language.
+b. A crude form of representing numbers.
+c. The part of Java that is the same as in older languages.
+d. A data type that cannot be used as part of an object.
+1
+4. Does every Java variable use a data type? 
+a. No---only numeric variables use data types.
+b. No---data types are optional.
+c. Yes---all variables are of the same data type.
+d. Yes---each variable must be declared along with its data type.
+2
+

@@ -1,0 +1,24 @@
+1. What type of inheritance does Java have? 
+a. single inheritance
+b. double inheritance
+c. multiple inheritance
+d. class inheritance
+1
+2. Say that there are three classes: Computer, AppleComputer, and IBMComputer. What are the likely relationships between these classes? 
+a. Computer is the superclass, AppleComputer and IBMComputer are subclasses of Computer.
+b. IBMComputer is the superclass, AppleComputer and Computer are subclasses of IBMComputer.
+c. Computer, AppleComputer and IBMComputer are sibling classes.
+d. Computer is a superclass, AppleComputer is a subclasses of Computer, and IBMComputer is a sublclas of AppleComputer
+1
+3. Can an object be a subclass of another object? 
+a. Yes---as long as single inheritance is followed.
+b. No---inheritance is only between classes.
+c. Only when one has been defined in terms of the other.
+d. Yes---when one object is used in the constructor of another
+2
+4. How many objects of a given class can there be in a program? 
+a. One per defined class.
+b. One per constructor definition.
+c. As many as the program needs.
+d. One per main() method.
+3

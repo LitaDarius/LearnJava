@@ -1,0 +1,24 @@
+1. What is an abstract class?
+a.    An abstract class is one without any child classes.
+b.    An abstract class is any parent class with more than one child class.
+X    c.    An abstract class is class which cannot be instantiated.
+d.    abstract class is another name for "base class."
+2. What is an abstract method?
+a.    An abstract method is any method in an abstract class.
+b.    An abstract method is a method which cannot be inherited.
+c.    An abstract method is one without a body that is declared with the reserved word abstract.
+d.    An abstract method is a method in the child class that overrids a parent method.
+3
+3. Can an abstract class define both abstract methods and non-abstract methods?
+a.    No--it must have all one or the other.
+b.    No--it must have all abstract methods.
+c.    Yes--but the child classes do not inherit the abstract methods.
+d.    Yes--the child classes inherit both.
+4
+4. Can an abstract parent class have non-abstract children?
+a.    No--an abstract parent must have only abstract children.
+b.    No--an abstract parent must have no children at all.
+c.    Yes--all children of an abstract parent must be non-abstract.
+d.    Yes--an abstract parent can have both abstract and non-abstract children
+ Interfaces
+4

@@ -1,0 +1,24 @@
+1. What is an interface? 
+   a.    An interface is a collection of constants and method declarations.
+b.    An interface is a class that a child class can extend.
+c.    An interface is a collection of GUI components.
+d.    An interface is the collection of public methods of a class.
+1
+2. Can an interface ever contain method bodies? 
+ a.    No.
+b.    Yes.
+c.    Sometimes.
+d.    Always.
+1
+3. When a class implements an interface, what must it do? 
+a.    It must redefine each constant from the interface.
+  b.    It must declare and provide a method body for each method in the interface.
+c.    It must declare a variable for each constant in the interface.
+d.    It must include a private method for each method in the interface.
+2
+4. Which of the following is true? 
+a.    A child class can extend a parent or implement an interface, but not do both.
+b.    A child class can extend just one parent and can implement just one interface.
+ c.    A child class can extend just one parent and can implement zero or more interfaces.
+d.    A child class can extend zero or more parents, and can implement zero or more interfaces.
+3

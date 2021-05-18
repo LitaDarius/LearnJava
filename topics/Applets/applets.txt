@@ -1,0 +1,24 @@
+1. Why does an applet have no main() method?
+a. The browser acts as the main. The applet provides methods for the browser.
+b. The paint() method is like the main method for an applet.
+c. Programs that do graphcis don't need a main.
+d. Only simple programs need a main.
+1
+2. What class must be extended when you code an applet?
+a. AWT
+b. JDK
+c. Applet
+d. Graphics
+3
+3. What is the role of the Graphics object?
+a. It represents the area the applet can draw in and provides drawing methods.
+b. It can be omitted, but is sometimes used for file i/o.
+c. It represents the entire screen of the computer monitor.
+d. It contains a list of commands from the browser to your applet.
+1
+4. The width and height of the drawing area correspond to coordinates:
+a. X and Y, with (0,0) in the lower left corner
+b. X and Y, with (0,0) in the upper left corner
+c. Y and X, with (0,0) in the lower left corner
+d. Y and X, with (0,0) in the lower right corner
+2
