@@ -54,4 +54,15 @@ public class HomeController {
     public void getName(String n){
         name.setText(n);
     }
+    public void openF(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("feed.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("error");
+        }
+    }
 }

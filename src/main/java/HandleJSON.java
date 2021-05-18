@@ -270,7 +270,7 @@ public class HandleJSON {
                 JSONObject tmp=(JSONObject) arr.get(i);
                 //System.out.println(tmp.get("name"));
                 if(name.equals(tmp.get("name").toString())&&(tmp.get("tests").toString().contains(test))){
-                    // System.out.println(true+"1");
+                   // System.out.println("The user has tests!");
 
                     return true;
                 }

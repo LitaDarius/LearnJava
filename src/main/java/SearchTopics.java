@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 public class SearchTopics {
-    public void search(String SearchT) {
+    public static boolean search(String SearchT) {
 
         File[] fileList = getFileList("topics",SearchT);
         int i=0;
@@ -15,7 +15,7 @@ public class SearchTopics {
         if(i==0){
             System.out.println("err");
         }
-
+return true;
 
     }
 

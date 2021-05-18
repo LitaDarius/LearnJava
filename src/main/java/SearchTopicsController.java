@@ -27,9 +27,11 @@ public class SearchTopicsController implements Initializable{
                 result.setText("No topic found!");
                 return;
             }
-
+            else if(SearchTopics.search(searchtop.getText())){
+                result.setText("Topic found:   "+searchtop.getText());
+            }
             else{
-                result.setText("Topic Found!");
+                result.setText("No topic found!");
             }
 
 

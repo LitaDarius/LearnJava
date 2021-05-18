@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="668.0" style="-fx-background-color: #A2FBF2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterController">
    <children>
       <TextField fx:id="name_field" layoutX="253.0" layoutY="115.0" prefHeight="25.0" prefWidth="163.0" promptText="name" />
       <PasswordField fx:id="password_field1" layoutX="253.0" layoutY="153.0" prefHeight="25.0" prefWidth="163.0" promptText="password" />

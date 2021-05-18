@@ -13,10 +13,32 @@ public class AdminController implements Initializable {
     private TextField topic_name;
     @FXML
     private ComboBox existent_topics;
+    @FXML
+    private TextField userf;
+    @FXML
+    private TextField userfound;
 
     public void addTopic(){
         File f=new File("topics/"+topic_name.getText());
         f.mkdir();
+    }
+    public void searchC(){
+        SearchClient o=new SearchClient();
+        o.checkifExists(userf.getText());
+        if(userf.getText().isEmpty()){
+            userfound.setText("No user found!");
+            return;
+        }
+        else if(SearchClient.checkifExists(userf.getText()))
+        {
+            userfound.setText("User found: "+userf.getText()+";  role:   "+HandleJSON.giveUserType(userf.getText())+ ";  Tests:"+HandleJSON.giveUserTests(userf.getText()));
+            return;
+        }
+        else{
+            userfound.setText("No user found!");
+            return;
+
+        }
     }
 
     @Override
