@@ -30,19 +30,34 @@ public class TestsController implements Initializable {
 
     private VBox v;
 
+    String tests;
+    private TestsController tc;
+
+    public void giveController(TestsController tes){
+        tc=tes;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-         v=new VBox();
-         File f=new File("topics");
-         String s="";
+        setupTests("");
+    }
+
+    public void setupTests(String str){
+        v=new VBox();
+        File f;
+        if(str.isEmpty())
+             f=new File("topics");
+        else
+             f=new File("topics/"+str);
+        String s="";
 
 
 
 
-         if(!f.exists()){
-             System.out.println("file not found");
-         }
-         listFilesForFolder(f,s,v);
+        if(!f.exists()){
+            System.out.println("file not found");
+        }
+        listFilesForFolder(f,s,v);
 
 
 
@@ -112,6 +127,30 @@ public class TestsController implements Initializable {
 
         thisStage.setScene(nextStage);
 
+    }
+
+    public void openTopics(){
+        Parent root = null;
+        try {
+            FXMLLoader l = new FXMLLoader(getClass().getResource("searchtop.fxml"));
+            root=l.load();
+
+            SearchTopicsController t=l.getController();
+           FXMLLoader loader=(FXMLLoader) scroll_pane.getScene().getUserData();
+           System.out.println(loader);
+           t.getController(tc);
+
+
+        } catch (IOException e) {
+            System.out.println("missing files");
+            e.printStackTrace();
+            System.exit(0);
+        }
+
+        Scene scene=new Scene(root);
+        Stage t=new Stage();
+        t.setScene(scene);
+        t.show();
     }
 
     public void logout(ActionEvent actionEvent){

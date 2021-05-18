@@ -25,7 +25,7 @@
                   <Bloom threshold="0.0" />
                </effect>
             </Label>
-            <ComboBox fx:id="hello" layoutX="372.0" layoutY="187.0" prefWidth="150.0" promptText="choose here" />
+            <ComboBox fx:id="hello" layoutX="372.0" layoutY="187.0" onAction="#sendTest" prefWidth="150.0" promptText="choose here" />
          </children>
          <effect>
             <ColorAdjust brightness="0.14" contrast="-0.22" saturation="0.11" />

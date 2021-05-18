@@ -29,6 +29,7 @@ public class StatsController  {
             root=l.load();
             TestsController t=l.getController();
             t.getName(name.getText());
+            t.giveController(t);
         } catch (IOException e) {
             System.out.println("missing files");
             e.printStackTrace();

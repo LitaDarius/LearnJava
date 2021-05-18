@@ -40,6 +40,7 @@ public class LoginStageController {
 
         if(HandleJSON.checkUserAndPass(name_field.getText(),PasswordHandler.getHashedPassword(name_field.getText(),password_field.getText()))){
 
+            DateHandle.addLogin();
             if(!HandleJSON.checkIfUserAdmin(name_field.getText())){
 
             Parent root = null;

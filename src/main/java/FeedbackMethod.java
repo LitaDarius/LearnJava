@@ -9,7 +9,7 @@ public class FeedbackMethod {
             FileWriter fstream = new FileWriter(FILE_NAME, true);
             BufferedWriter out = new BufferedWriter(fstream);
             out.append("Name:"+Name + "\n\r");
-            out.append("\nFeedback:"+message + "\n");
+            out.append("\nFeedback:"+message + "\n\n\n");
             out.close();
         }
         catch(IOException e1) {

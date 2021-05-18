@@ -18,10 +18,10 @@
       <TextField fx:id="topic_name" layoutX="78.0" layoutY="142.0" promptText="name of new topic" style="-fx-background-color: lightyellow;" />
       <ComboBox fx:id="existent_topics" layoutX="372.0" layoutY="142.0" prefWidth="150.0" promptText=" select topic " style="-fx-background-color: lightyellow;" />
       <Button layoutX="408.0" layoutY="175.0" mnemonicParsing="false" onAction="#delTopic" style="-fx-background-color: #D2D36E;" text="delete topic" />
-      <Button layoutX="250.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: #D2D36E;" text="serach for client" />
+      <Button layoutX="250.0" layoutY="320.0" mnemonicParsing="false" onAction="#showUserInfo" style="-fx-background-color: #D2D36E;" text="serach for client" />
       <Button layoutX="274.0" layoutY="473.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #D2D36E;" text="logout" />
       <TextField fx:id="userf" layoutX="225.0" layoutY="266.0" style="-fx-background-color: lightyellow;" />
-      <Text layoutX="227.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="logins today:" textAlignment="CENTER" wrappingWidth="145.00586092472076" />
-      <TextField fx:id="userfound" layoutX="45.0" layoutY="362.0" prefHeight="25.0" prefWidth="501.0" style="-fx-background-color: lightyellow;" />
+      <Text fx:id="login_number" layoutX="227.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="logins today:" textAlignment="CENTER" wrappingWidth="145.00586092472076" />
+      <Text fx:id="user_info" layoutX="103.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="393.13671875" />
    </children>
 </AnchorPane>

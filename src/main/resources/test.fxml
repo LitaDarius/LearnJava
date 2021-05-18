@@ -21,6 +21,7 @@
             <Button layoutY="157.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: blue;" text="tests" />
             <Button layoutY="194.0" mnemonicParsing="false" onAction="#getToStats" prefHeight="37.0" prefWidth="202.0" style="-fx-background-color: #9CF3EA;" text="stats" />
             <Label fx:id="result_label" layoutX="11.0" layoutY="317.0" prefHeight="29.0" prefWidth="180.0" />
+            <Button layoutX="63.0" layoutY="262.0" mnemonicParsing="false" onAction="#openTopics" text="select topic" />
          </children>
       </AnchorPane>
    </left>
